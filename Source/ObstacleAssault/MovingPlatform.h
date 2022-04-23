@@ -29,7 +29,4 @@ public:
 
 	FVector StartLocation;
 
-	UPROPERTY(EditAnywhere, Category = "Moving Platform")
-	float DistanceMoved;
-
 };
