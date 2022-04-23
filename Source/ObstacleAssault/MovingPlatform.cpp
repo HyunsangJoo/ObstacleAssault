@@ -31,8 +31,12 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 	if (DistanceMoved > MoveDistance)
 	{
-		StartLocation = CurrentLocation;
+		FVector MoveDirection = PlatformVelocity.GetSafeNormal2D();
+		// overshoot 방지 
+		StartLocation = StartLocation + MoveDirection*MoveDistance;
+		SetActorLocation(CurrentLocation);
 		PlatformVelocity = -PlatformVelocity;
+
 	}
 }
 
